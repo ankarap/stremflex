@@ -1,0 +1,1084 @@
+/* Обнуление */
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+html,
+body {
+	height: 100%;
+	line-height: 1;
+	background: #fafafa; /*задаем чтобы цвет применяелся ко всем блокам*/
+	font-size: 14px;
+	color: #252b42;
+	font-weight: 500;
+	font-family: Montserrat;
+}
+/* ---------------------------------------------------------------------------- */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex; /*задаем чтобы прибить футер к низу*/
+	flex-direction: column; /*задаем чтобы прибить футер к низу*/
+}
+/* ---------------------------------------------------------------------------- */
+._container {
+	max-width: 1200px;
+	padding: 0px 15px;  /*укзываем чтобы при изменении размеров объекты не прилипали к бокам*/
+	margin: 0px auto;
+	box-sizing: content-box; /*задается для того чтобы падинг не суммировался*/
+}
+._ibg {
+	position: relative;
+}
+._ibg img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+/* ---ШАПКА------------------------------------------------------------------------- */
+.header {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 50;
+}
+.header__container {
+	display: flex;
+	min-height: 104px;
+	align-items: center;
+}
+@media (max-width: 479px) {
+	.header__container {
+		min-height: 70px; /*уменьшаем хидер*/
+	}
+}
+.header__logo {
+	font-size: 24px;
+	font-weight: 700;
+	color: inherit; /*переносит цвет который установлен наверху в боди*/
+}
+.header__menu {
+	margin: 0px 0px 0px 133px;
+}
+@media (max-width: 992px) {
+	.header__menu {
+		margin: 0px 0px 0px 80px; /* если экран для планшета отступы уменьшаются*/
+	}
+}
+@media (max-width: 767px) {
+	.header__menu {
+		margin: 0px 0px 0px 40px; /* если экран становится меньше чем для планшета отступы уменьшаются*/
+	}
+}
+@media (max-width: 479px) {
+	.header__menu {
+		margin: 0px 0px 0px 20px; /* если экран становится меньше чем для планшета отступы уменьшаются*/
+	}
+}
+.menu {
+	padding: 5px 0; /*отсутпы безовасности чтобы не прилипал к верху и низу*/
+}
+.menu__list {
+	flex-wrap: wrap; 
+	display: flex;
+}
+.menu__item {
+}
+.menu__item:not(:last-child) {
+	margin: 0px 21px 0px 0px;
+}
+.menu__link {
+	color: #737373;
+	font-weight: 600;  /* значение из макета*/
+	line-height: calc(24 / 14 * 100%); /*или 24px*/
+}
+.menu__link:hover {
+	text-decoration: underline;
+}
+@media (max-width: 479px) {
+	.menu__link {
+		font-size: 18px; /*увеличиваем шрифт*/
+	}
+}
+/* ---PAGE------------------------------------------------------------------------- */
+.page {
+	flex: 1 1 auto; /*позволяет блоку увеличиваться, задается когда футер прибивается к низу*/
+}
+.page__main-block {
+}
+.page__services { /* переносим все названия классов сюда*/
+	position: relative;
+	z-index: 2;
+	margin: -111px 0px 0px 0px; /*переносим три маленьких квадратика на 1й блок, чтобы он наезжал как на макете*/
+}
+.page__advantages {
+}
+.page__practice {
+}
+.page__whoweare {
+}
+.page__clients:not(:last-child) { /*задаем для отступа между блоками*/
+	margin: 0px 0px 10px 0px;
+}
+.page__subscribe {
+}
+.page__getintouch {
+}
+.page__contact {
+}
+/* ---HEADER-BLOCK (переносим из 3 блока в общее тк будут повторяться и в других)------------------------------------------------------------------------- */
+.header-block {
+	text-align: center; /*выравниваем*/
+	letter-spacing: 0.2px;
+}
+.header-block__title { /*берем данные из макета*/
+	line-height: 142%;
+	font-weight: 700;
+	font-size: 40px;
+}
+.header-block__title:not(:last-child) { /*добавляем через нот тк сабтайтл может и не быть*/
+	margin: 0px 0px 10px 0px;
+}
+.header-block__sub-title { /*берем данные из макета*/
+	line-height: 142%;
+	color: #737373;
+}
+@media (max-width: 992px) {
+	.header-block__title {
+		font-size: 35px;/*изменяем размеры заголовка*/
+	}
+}
+@media (max-width: 767px) {
+	.header-block__title {
+		font-size: 30px;/*изменяем размеры заголовка*/
+	}
+}
+/* ---ПОДВАЛ------------------------------------------------------------------------- */
+.footer {
+}
+/* ---MAIN-BLOCK------------------------------------------------------------------------- */
+.main-block {
+	position: relative;
+}
+.main-block__container {
+}
+.main-block__body {
+	padding: 184px 0px 191px 0px;
+	position: relative;
+	z-index: 2;
+	max-width: 400px;/*из макета. устанав значение 400 чтобы текст не заламывался*/
+}
+@media (max-width: 992px) {/*для планшета*/
+	.main-block__body {/*убираем отступы сверху при уменьшении экрана*/
+		padding: 120px 0px 191px 0px;
+	}
+}
+@media (max-width: 479px) {
+	.main-block__body {
+		padding: 115px 0px 160px 0px;
+	}
+}
+.main-block__body > *:not(:last-child) { /*обращение ко всем объектам боди 1ого уровня*/
+	margin: 0px 0px 35px 0px;
+}
+
+.main-block__title { /*из макета для блока с заголовком*/
+	font-size: 58px;
+	line-height: 137%;
+	letter-spacing: 0.2px;
+	font-weight: 800;
+}
+@media (max-width: 479px) {
+	.main-block__title {
+		font-size: 42px;
+	}
+}
+.main-block__text {
+	color: #737373;
+	font-size: 20px;
+	line-height: 150%; /*или это 30пкс из макета между заголовком и текстом*/
+}
+@media (max-width: 479px) {
+	.main-block__text {
+		color: #585757;
+	}
+}
+.main-block__buttons { /*можно исп для кнопок и при добавл 
+	текста не будет ломаться конструкция просто будет увеличиваться место*/
+	/*Оставляем общие стили для двух кнопок*/
+	display: flex;
+	flex-wrap: wrap;
+	margin: -10px 0;
+}
+.main-block__button {
+	border-radius: 37px;
+	display: flex;
+	min-height: 48px; /*из макета*/
+	justify-content: center;
+	align-items: center;
+	letter-spacing: 0.2px;
+	font-weight: 700;
+	text-align: center;
+	line-height: 150%;
+	padding: 5px 36px;  /*сверху/снизу 36пкс*/
+	margin: 10px 0;
+	transition: all 0.3s ease 0s;
+}
+
+@media (max-width: 479px /*mobile*/) { /*увеличваем кнопки*/
+	.main-block__button {
+		flex: 1 1 100%;
+	}
+}
+@media (min-width: 479px /*mobile метод мобайлфирст то есть возникает отст только 
+	при моб экране*/) {
+	.main-block__button:not(:last-child) {
+		margin-right: 10px;
+	}
+}
+.main-block__button_orange {
+	background: #ff7b47;
+	color: #fff;
+}
+.main-block__button_orange:hover {
+	background-color: #fff;
+	color: #ff7b47;
+}
+.main-block__button_border {
+	color: #0d5c63;
+	border: 1px solid #0d5c63;
+}
+.main-block__button_border:hover {
+	background-color: #0d5c63;
+	color: #fff;
+}
+.main-block__image { /*можно взять изописания стилей в макете*/
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+@media (max-width: 1300px) { /*для фиксации изображения при изменении экрана*/
+	.main-block__image img {
+		object-position: right;
+	}
+}
+@media (max-width: 992px /*для планшета*/) {
+	.main-block__image {
+		opacity: 0.5;  /**выбеливаем изображение для того, чтобы текст был читабельный*/
+	}
+}
+/* ---------page-services-------------------------- */
+.services {
+}
+.services__container {
+}
+.services__body {
+}
+@media (min-width: 670px) {
+	.services__body {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0px -15px; /*отступы в квадратиках*/
+	}
+}
+.services__column {
+	flex: 0 1 33.333%;/*колонка занимает 1/3 от всей ширины*/
+}
+@media (min-width: 670px) {
+	.services__column {
+		padding: 0px 15px;
+	}
+}
+
+@media (max-width: 992px) {  /*сдвигаем колонки при адаптации*/
+	.services__column {
+		flex: 0 1 50%;
+	}
+	.services__column:not(:last-child) {
+		margin: 0px 0px 30px 0px;
+	}
+	.services__column:last-child {
+		flex: 1 1 100%; /*чтобы 3 объект переносился и растягивался под два других при изменении экрана */
+	}
+}
+.services__item {
+	height: 100%; /*задаем чтобы карточки были одного размера если убрать 
+	и менять кол-во текста в одной, то меняться будет только она ане все */
+	box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07); /*тень у блока*/
+	background-color: #fff;
+	padding: 35px; /*общий отступ из макета*/ 
+}
+
+@media (max-width: 479px) {
+	.services__item {
+		padding: 25px;
+	}
+}
+.item-service {
+}
+.item-service_green {
+	background-color: #0d5c63;
+}
+.item-service_green .item-service__title {
+	color: #fff;
+}
+.item-service_green .item-service__text {
+	color: #fff;
+}
+
+.item-service > *:not(:last-child) { /*обращение ко всем объектам боди 1ого уровня*/
+	margin: 0px 0px 10px 0px;
+}
+.item-service__icon {
+}
+.item-service__title {
+	font-weight: 700;  /*из макета раздел topography*/
+	letter-spacing: 0.1px;
+	font-size: 24px;
+	line-height: 133%;
+}
+.item-service__text {
+	color: #737373;
+	line-height: 142%;
+}
+
+/* ---------page-advantages-------------------------- */
+
+.advantages{
+	padding: 80px 0px;
+}
+@media (max-width: 992px){
+.advantages{
+	padding: 50px 0px; /*уменьшаем отсутп при новом размере экрана*/
+}
+}
+@media (max-width: 767px){
+.advantages{
+	padding: 30px 0px; /*уменьшаем отсутп при новом размере экрана*/
+}
+}
+.advantages__container{}
+
+.advantages__header{ /*исп его как модификатор для след блоков те будет повторяться*/
+margin: 0px 0px 50px 0px;
+}
+@media (max-width: 767px){
+.advanteges__header{
+	margin: 0px 0px 25px 0px; /*сокращаем отступ*/
+}
+}
+.advantages__body{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px -15px -30px;
+}
+.advantages__column{
+	padding: 0px 15px;
+	margin: 0px 0px 30px 0px; /**задаем чтобы при изменении маштабов между квадратиками был отсутп*/
+	flex: 0 1 25%;
+}
+@media (max-width: 1020px){
+.advantages__column{ /**перестраиваем карточки друг под другом*/
+	flex: 0 1 50%;
+}
+}
+@media (max-width: 560px){
+.advantages__column{ /**перестраиваем карточки друг под другом*/
+	flex: 0 1 100%;
+}
+}
+.advantages__item{
+	background-color: #fff;
+	padding: 30px; /*отступы сверху и снизу в квадратиках из макета, текст выходит 
+	за пределы поэтому мы можем переделать значенеина походящее */
+	text-align: center; 
+}
+.advantages__item > *:not(:last-child){
+	margin: 0px 0px 10px 0px;
+}
+.advantages__icon{
+	height: 48px; /*задаем одинаковую высоту для всех иконок*/
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+.advantages__value{ /*берем из макета*/
+	font-size: 40px;
+	font-weight: 700; /*жирный шрифт*/
+	line-height: 142%;
+}
+.advantages__text{/*берем из макета*/
+	font-size: 40px;
+	color: #737373;
+	font-size: 16px;
+	line-height: 150%; /*записано в макете как identical to box height or*/
+}
+
+/* ---------page-practice-------------------------- */
+
+.practice {
+	padding: 125px 0px 80px 0px;
+}
+@media (max-width: 993px) {
+	.practice {
+		padding: 40px 0px 80px 0px; /*дорабатываем отступы чтоб они 
+		были более реальные (симпотичные)*/
+	}
+}
+@media (max-width: 767px) {
+	.practice {
+		padding: 0px 0px 40px 0px;/*дорабатываем отступы чтоб они 
+		были более реальные (симпотичные)*/
+	}
+}
+.practice__container {
+}
+.practice__header {
+	margin: 0px 0px 45px 0px;/*отсутуп блока*/
+}
+@media (max-width: 767px) {
+	.practice__header {
+		margin: 0px 0px 25px 0px;
+	}
+}
+
+.practice__body {
+	margin: 0px -20px -30px; /*сюда добавляем отрицательный а ниже положительный 
+	чтоб были отступы при адаптации*/
+	display: flex;
+	flex-wrap: wrap;
+}
+.practice__column {
+	padding: 0px 20px; 
+	margin: 0px 0px 30px 0px;/*тот же отступ что и на верху (-30 только положительный)*/
+	flex: 0 1 25%;/*делим на 4 квадратика*/ 
+}
+
+@media (max-width: 1040px) {
+	.practice__column {
+		flex: 0 1 50%; /*квадратики будут друг под другом парами*/
+	}
+}
+@media (max-width: 630px) {
+	.practice__column {
+		flex: 0 1 100%;/*квадратики будут друг под другом по одному т е в столбик*/
+	}
+}
+
+.practice__item {
+}
+.item-practice {
+	background-color: #fff;
+	display: flex; /*выравниваем содержимое квадратиков*/
+	height: 100%; /*100% высота у карточек*/
+	flex-direction: column; /*разворвачиваем объекты*/
+}
+.item-practice__content {
+	padding: 30px;/*отступы у заголовка в квадратике из макета*/
+	flex: 1 1 auto; /*позволяем контенту увеличиваться*/
+}
+.item-practice__link {
+	color: inherit;
+	display: inline-block;/*делаем ссылку блочной а не строчной*/
+}
+.item-practice__link:hover {
+	text-decoration: underline;
+}
+.item-practice__link:not(:last-child) {
+	margin: 0px 0px 15px 0px; /*будет работать только если задано 
+	дисплей инлайн блок, тк ссылка строчкая и к ней не применяется маржин*/
+}
+.item-practice__title {
+	letter-spacing: 0.1px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 150%;/*из макета заголовка*/
+}
+.item-practice__text {
+	color: #737373;
+	line-height: 142%;/*из макета текста*/
+}
+.item-practice__image {
+	display: block;/*делаем блоком тк это ссылка*/
+	padding: 0px 0px 60% 0px; /*высота картинки/ ширина картинки и 
+	умножить на 100%- нижний паддинг*/
+}
+
+/* ---------page-whoweare-------------------------- */
+.whoweare {
+	background: #ffffff;
+	padding: 80px 0px 130px 0px;
+}
+
+.whoweare__container {
+}
+.whoweare__header {
+	margin: 0px 0px 100px 0px;/*расстояние от заголовка до блока из макета(над заголовком)*/
+} 
+.whoweare__body {
+	display: flex;/*задаем чтобы сместить часть с текстом в бок*/
+	align-items: flex-start; /*прижимает все к верху*/
+}
+
+.whoweare__video {
+	flex: 0 0 57%; /*тк ширина макета 1046 а ширина контента 
+	600пкс то чтобы определить соотнош для видео 1046/600*/
+	position: relative;
+	padding: 0px 0px 42.25% 0px;/*получаем это значение 
+	как 442 (размер видео)/ на 1046 (размер всего сайтп и умнож на 100) если же видео задано 
+	в отдельном блоке, тогда уже ширину считаем от размера контентной части*/ 
+}
+.whoweare__video iframe {/*обращение к видео из кода html*/
+	position: absolute;/*применяем все критерии для абсолютного позиционирования видео здесь*/
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+.whoweare__content {
+	flex: 1 1 auto;/*задаем на случай если удалим видео, 
+	чтобы текстовая часть правильно распределилась*/
+	padding: 20px 0px 0px 121px;/*из макета маленького квадратика с текстом*/
+}
+@media(max-width: 992px){
+.whoweare__content{
+	padding: 0px 0px 0px 0px 
+}
+}
+.whoweare__title {/*берем данные из макета*/
+	font-weight: 800;
+	font-size: 40px;
+	line-height: 142%;
+	letter-spacing: 0.2px;
+}
+
+.whoweare__title:not(:last-child) {
+	margin: 0px 0px 10px 0px;/*из макета отступ между текстом и заголовком*/
+}
+}
+.whoweare__text {/*берем данные из макета*/
+	color: #737373;
+	line-height: 142%;
+}
+.whoweare__top:not(:last-child) {
+	margin: 0px 0px 50px 0px;/*делаем в новый блок для этой части и к ней применяем новые 
+	отступы чтобы при сокращении или изменении к-ва текста были не большие отступы */
+} /*задаем пиксели для иконок из макета (тыкаем на иконку)*/
+}
+.whoweare__items {
+}
+.whoweare__item {
+}
+.whoweare__item:not(:last-child) {
+	margin: 0px 0px 30px 0px;
+}
+
+.item-whoweare {
+	display: flex;
+}
+.item-whoweare__icon {
+	flex: 0 0 32px;/*задаем пиксели для иконок из макета (тыкаем на иконку)*/
+}
+.item-whoweare__body {
+	flex: 1 1 auto;
+	padding: 0px 0px 0px 20px;
+}
+.item-whoweare__title {/*берем и макета*/
+	font-weight: 700;/*жирный заголовок*/
+	font-size: 16px;
+	line-height: 150%;
+}
+.item-whoweare__title:not(:last-child) {
+	margin: 0px 0px 5px 0px;
+}
+.item-whoweare__text {
+	color: #737373;
+	white-space: nowrap;
+	line-height: 142%;
+	/*фиксируем значение и высоту, чтобы текст 
+	сокращался и было многоточие, но лучше не делать а делать через бэкэнд*/
+	width: 225px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+@media (max-width: 1080px) {/*группируем все медиазапросы на 1080пкс в один*/
+	.whoweare__content {
+		padding: 0px 0px 0px 50px;
+	}
+}
+@media (max-width: 950px) { /*группируем все медиазапросы на 950пкс в один*/
+	.whoweare {
+		padding: 50px 0px 50px 0px;
+	}
+	.whoweare__body {
+		flex-direction: column-reverse;
+		align-items: stretch;/*когда добавляем column-reverse 
+		видео исчеазет и чтобы его вернуть добавлем эту запись*/
+	}
+	.whoweare__title {
+		font-weight: 700;
+		font-size: 24px;
+	}
+	.whoweare__content {
+		padding: 0px 0px 0px 0px;
+	}
+	.whoweare__video {
+		padding: 0px 0px 56.25% 0px;/*изменяем пропорции 
+		видео чтоб они были гармоничнее для этого берем 
+		исходные пропорции у видео и делим 315/560*/
+	}
+	.whoweare__video:not(:last-child) {
+		margin: 50px 0px 0px 0px;
+	}
+	.whoweare__header {
+		margin: 0px 0px 30px 0px;
+	}
+}
+@media (max-width: 767px) {/*группируем все медиазапросы на 767пкс в один*/
+	.whoweare {
+		padding: 20px 0px 50px 0px;/*убираем общие отступы между блоками совсем*/
+	}
+	.whoweare__top:not(:last-child) {
+		margin: 0px 0px 30px 0px;
+	}
+	.whoweare__video:not(:last-child) {
+		margin: 30px 0px 0px 0px;
+	}
+}
+
+/* ---------page-clients-------------------------- */
+.clients{
+	padding: 50px 0;/*берем из макета там 58 но меняем 
+	на более симпатичный вариант*/
+}
+@media (max-width: 767px){
+	.clients{
+	padding: 30px 0;
+}
+}
+.clients__container{}
+.clients__items{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;/*при изменении экрана объекты 
+	будут переходить на другую строку*/ 
+	justify-content: center; /*чтобы при изменении 
+	экрана выдвигались в центр а не с краю*/
+}
+.clients__item{
+	padding: 0 15px; /*для равномерного перехода на новую строку*/
+	flex: 0 1 16.6667%; /*делим на нужное кол-во ячеек для контенкта*/
+	text-align: center;
+	min-width: 140px; /*добавляем после того как работаем с img (max-width)*/
+}
+.clients__item img{/*рекомендуется обращаться к изображениям, 
+на случай если туда поместить большую чтобы она переформатировалась*/
+	max-width: 100%;
+}
+/* ---------page-subscribe-------------------------- */
+.subscribe { /*делаем для нижней дополнительной полоски синей*/
+	position: relative;
+	padding: 0px 0px 20px 0px; /*нижний отступ между поиском и синей полоской*/
+}
+.subscribe::before { /*задаем псевдоэлемент before для нижней дополнительной полоски синей*/
+	content: "";
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 77px;
+	left: 0;
+	background: #252b42;
+}
+.subscribe__container {
+}
+.subscribe__body {
+	position: relative;/*делаем чтобы опустить синюю полоску за блок с поиском*/
+	z-index: 2; /*делаем чтобы опустить синюю полоску за блок с поиском*/
+	padding: 30px 50px;
+	align-items: center;
+	background: #17213c;
+	border-radius: 2px;
+}
+@media(min-width: 1070px){/*исп мобайлфирс, чтобы не удалять предыдущие отступыт*/
+.subscribe__body {
+margin: 0px 30px;
+}
+}
+.subscribe__title { /*из макета*/
+	color: #fff;
+	font-size: 133%;
+	line-height: 32px;
+	font-weight: 700;
+	letter-spacing: 0.1px;
+}
+@media(max-width: 810px){
+	.subscribe__title {
+		margin: 0px 0px 20px 0px;
+	}
+	.subscribe__body {
+		margin: 0px -15px;/*раздвигаем, чтобы убрать отступы 
+		 как внутри поля с поиском так и чтобы не было белых отступов вокруг*/
+		padding: 20px 20px;
+}
+}
+@media(min-width: 810px){
+.subscribe__title{
+	max-width: 266px;/*делает текст в одну строчку и устанавливает нужную высоту*/
+}
+.subscribe__body {
+display:flex;
+justify-content: space-between;
+}
+}
+.subscribe__form {
+	flex: 0 1 50%;
+	display: flex;
+	align-items: center;
+}
+.subscribe__input { /*из макета*/
+	width: 100%;/*задаем чтобы адаптировать размер поля ввода и кнопку поиска*/
+	flex: 1 1 auto;
+	min-height: 58px;
+	background: #f9f9f9;
+	color: #737373;
+	padding: 0px 20px;
+	border: 1px solid #e6e6e6;
+	border-right: 0;/*добавляем двойную границу*/
+	box-sizing: border-box;
+	border-radius: 5px 0 0 5px;
+}
+.subscribe__input:focus{
+	color:#000;
+}
+.subscribe__button { /*из макета*/
+	background: #ff7b47;
+	border: 1px solid #e6e6e6;
+	border-radius: 0px 5px 5px 0px;
+	display: flex;
+	min-height: 58px;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	text-align: center;
+	color: #fff;
+	transition: all 0.3s ease 0s;
+	padding: 0px 22px;
+}
+@media(max-width: 810px){/*уменьшить отступы у кнопки*/
+	.subscribe__button{
+		padding: 0px 15px;
+	}
+	.subscribe__input{
+		padding: 0px 15px;/*увеличиваем поле ввода*/
+	}
+}
+/* ---------page-getintouch-------------------------- */
+.getintouch {
+	padding: 80px 0px 135px 0px;
+}
+.getintouch__container {
+}
+.getintouch__header {
+	margin: 0px 0px 80px 0px;
+}
+.getintouch__items {
+	margin: 0px -15px;/*анулируем двойные отступы при адаптации*/
+}
+
+.getintouch__item {
+	flex: 0 1 33.333%;
+}
+.item-getintouch {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	padding: 50px 15px;
+}
+.item-getintouch_active { /*модификтор активации для второго квадратика*/
+	background: #252b42;
+	padding: 80px 15px; /*делаем отступы больше чтобы второй квадратик 
+	был чуть выше и берем их из макета*/
+	color: #fff;
+}
+.item-getintouch_active .item-getintouch__button { /*обращение к кнопке внутри модификатора*/
+	border: 1px solid #fff;
+	color: #fff;
+}
+
+.item-getintouch > *:not(:last-child) {
+	margin: 0px 0px 15px 0px;
+}
+.item-getintouch__icon {
+}
+.item-getintouch__emails {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.item-getintouch__email {
+	color: inherit;
+	font-weight: 600;
+	line-height: 150%; /*считаем как значение лайн хайгт в пекселях деленное 
+	на размер шрифа и тогда получаем значени в процентах*/
+	font-size: 16px;
+}
+.item-getintouch__email:hover {
+	text-decoration: underline;
+}
+.item-getintouch__label {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 150%;
+}
+.item-getintouch__button {
+	border: 1px solid #ff7b47;
+	min-height: 44px;
+	display: flex;
+	font-weight: 600;
+	justify-content: center;
+	align-items: center;
+	color: #ff7b47;
+	line-height: 142%;
+	padding: 5px 20px;
+	text-align: center;
+	transition: all 0.3s ease 0s;
+	border-radius: 5px;
+}
+.item-getintouch__button:hover {
+	border: 1px solid #ff7b47;
+	background-color: #ff7b47;
+	color: #fff;
+}
+
+@media (min-width: 992px) { /*при достижении этого размера флекс исчезает 
+	и объекты складываются друг под друга */
+	.getintouch__items {
+		margin: 0; /*анулируем двойные отступы при адаптации*/
+		display: flex;
+		align-items: center;
+	}
+}
+@media (max-width: 992px) {/*группируем все отступы при данном размере экрана*/
+	.getintouch {
+		padding: 50px 0px;
+	}
+	.getintouch__header { /*изменяем отступы у заголовков */
+		margin: 0px 0px 50px 0px;
+	}
+	.item-getintouch_active {
+		padding: 50px 15px;
+	}
+}
+@media (max-width: 767px) {/*изменяем отступы у заголовков */
+	.getintouch__header {
+		margin: 0px 0px 30px 0px;
+	}
+}
+/* ---------page-contact-------------------------- */
+.contact{
+	background-color: #fff;
+	padding: 42px 0;  /*из макета*/
+}
+.contact__container{}
+.contact__content{
+	padding: 0px 0px 20px 0px; /*отступы безопастности*/
+}
+@media(min-width: 767px){
+.contact__body{
+	display: flex;
+	align-items: center;
+	justify-content: space-between; /*раскидываем объекты в разные части контейнера*/
+}
+.contact__content{
+	padding: 20px 0px 0px 0px; }
+
+}
+
+.contact__title{
+	/*из макета*/
+	font-weight: 700; 
+	letter-spacing: 0.1px;
+	font-size: 24px;
+	line-height: 133%;
+}
+.contact__title:not(:last-child){
+	margin: 0px 0px 10px 0px; /*отступы между заголовками*/
+}
+.contact__text{/*из макета*/
+	color: #737373;
+	line-height: 142%;
+}
+.contact__button{/*из макета*/
+	display: flex;
+	background:#FF7B47;
+	border-radius: 5px;
+	min-height: 58px;
+	padding: 5px 40px;
+	transition: background-color 0.3s ease 0s;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+}
+.contact__button:hover{
+	background: #aa5330;
+}
+/* ---------footer-------------------------- */
+
+.footer {
+}
+.footer__top {
+	background: #17213c;
+	padding: 35px 0;
+}
+.footer__main {
+}
+.footer__row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px -15px;
+}
+.footer__column {
+	padding: 15px 15px;
+	flex: 0 1 16.6667%;
+}
+.footer__column:last-child {
+	flex: 0 1 33.334%;
+}
+@media (max-width: 992px) {
+	.footer__column {
+		flex: 0 1 25%;
+	}
+	.footer__column:last-child {
+		flex: 1 1 100%;
+	}
+}
+@media (max-width: 992px) {
+	.footer__column {
+		flex: 0 1 50%;
+	}
+}
+
+.footer__label {
+	color: #fff;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 150%;
+	margin: 0px 0px 20px 0px;
+}
+.footer__menu {
+}
+
+.menu-footer {
+}
+.menu-footer__list {
+}
+.menu-footer__item:not(:last-child) {
+	margin: 0px 0px 10px 0px;
+}
+.menu-footer__link {
+	color: #fff;
+	display: inline-block;
+	line-height: 171%;
+	letter-spacing: 0.2px;
+}
+.menu-footer__link:hover {
+	text-decoration: underline;
+}
+
+.footer__contacts {
+}
+
+.contacts-footer {
+	display: flex;
+	flex-direction: column;
+}
+.contacts-footer__item {
+	padding: 0px 0px 0px 34px;
+	line-height: 142%;
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	min-height: 30px;
+}
+.contacts-footer__item:hover {
+	text-decoration: underline;
+}
+.contacts-footer__item:not(:last-child) {
+	margin: 0px 0px 12px 0px;
+}
+.contacts-footer__item_phone {
+	background: url("../img/footer/icons/01.svg") 0 0 no-repeat;
+}
+.contacts-footer__item_map {
+	background: url("../img/footer/icons/02.svg") 0 0 no-repeat;
+}
+.contacts-footer__item_email {
+	background: url("../img/footer/icons/03.svg") 0 0 no-repeat;
+}
+.footer__bottom {
+	padding: 25px 0;
+}
+.footer__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.footer__copy {
+	color: #737373;
+	line-height: 171%;
+}
+.footer__social {
+}
+
+.social {
+	display: flex;
+	align-items: center;
+}
+.social__item:not(:last-child) {
+	margin: 0px 20px 0px 0px;
+}
+@media (max-width: 767px) {
+	.footer__container {
+		flex-direction: column;
+	}
+	.footer__copy {
+		margin: 0px 0px 15px 0px;
+		text-align: center;
+	}
+}
